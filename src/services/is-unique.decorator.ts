@@ -13,14 +13,3 @@ export class IsUniqueConstraint implements ValidatorConstraintInterface {
   }
 }
 
-export function IsUnique(entity: Function, validationOptions?: ValidationOptions) {
-  return function (object: Object, propertyName: string) {
-    registerDecorator({
-      target: object.constructor,
-      propertyName,
-      options: validationOptions,
-      constraints: [entity],
-      validator: IsUniqueConstraint
-    });
-  };
-}
