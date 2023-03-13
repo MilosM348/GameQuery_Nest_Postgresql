@@ -17,6 +17,13 @@ class SearchFilter {
 export class RegionsController {
   constructor(private readonly regionsService: RegionsService) {}
 
+  @Post()
+  async create(@Req() req:Request, @Res() res: Response,@Body() createRegionDto: CreateRegionDto) {
+    // return this.regionsService.create(createRegionDto);
+    let createData = await this.regionsService.create(createRegionDto);
+    return res.send(createData);
+  }
+
   @Get()
   async findAll(@Req() req:Request, @Res() res: Response) {
     let findAll: any = await this.regionsService.findAll();
