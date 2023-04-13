@@ -14,6 +14,11 @@ class SearchFilter {
   TextString: string;
 }
 
+@ApiTags('Type')
+@ApiHeader({
+  name: 'Type api',
+  description: 'A Custom Header'
+})
 @Controller('types')
 export class TypesController {
   constructor(private readonly typesService: TypesService) {}
